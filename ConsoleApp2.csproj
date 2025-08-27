@@ -1,16 +1,23 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+using System;
+using System.Formats.Asn1;
+using System.Globalization;
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
-  </PropertyGroup>
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double A, π, R;
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
-  </ItemGroup>
+            Console.WriteLine();
+            R = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-</Project>
+            π = 3.14159; 
+
+            A = Math.Pow(R, 2) * π;
+
+            Console.WriteLine("A = " + A.ToString("F4", CultureInfo.InvariantCulture)); 
+        }
+    }
+}
